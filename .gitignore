@@ -1,3 +1,6 @@
 # Ignore elf and hex files
 *.elf
 *.hex
+
+# Ignore PDF documentation for components
+*.pdf
