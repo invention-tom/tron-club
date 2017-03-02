@@ -14,15 +14,14 @@ int main(void) {
 	GIMSK |= _BV (INT0); 			     //Enable external interrupts	
 	MCUCR = _BV (ISC01) | _BV(ISC00);	 // Set rising/Falling edge. See ATtiny13 data sheet table 9-2
 	sei();								 // Set Enable Global Interrupt bit
-	DDRB = (1<<DDB4) | (1<<DDB3);; 		
-	PORTB = 0; 							 
+	DDRB = (1<<DDB4) | (1<<DDB3);
+	PORTB = 0;
 	for (;;){}
 	return 0;
 }
 ISR (PCINT0_vect, ISR_NOBLOCK) // Interrupt Service Routine, performed when the Pin-change interrupt is triggered.
 {                                       
 	PORTB ^= 1<<PB3; //change LED from on to off or vice versa
-
 }
 
 ISR (INT0_vect, ISR_NOBLOCK) // Interrupt Service Routine, performed when the external interrupt is triggered.
