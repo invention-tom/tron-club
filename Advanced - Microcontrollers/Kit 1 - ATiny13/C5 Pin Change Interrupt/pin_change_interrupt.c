@@ -9,9 +9,8 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
-
 int main(void) {
-	PCMSK |= (1<<PCINT0);	// pin change mask: listen to the designated pin of port B. (Choose PCINT0,PCINT1, etc...)
+	PCMSK |= (1<<PCINT1);	// pin change mask: listen to the designated pin of port B. (Choose PCINT0,PCINT1, etc...)
 	GIMSK |= (1<<PCIE);		// enable Pin-Change interrupt (PCINT)
 	sei(); 					// Set Enable Global Interrupt bit
 	DDRB = (1<<DDB4);
